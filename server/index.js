@@ -6,8 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/test', (req, res) => {
-    res.json({ message: "Backend is connected" })
+const githubRoutes = require('./routes/github');
+
+app.use('/api/github', githubRoutes);
+
+app.get('/', (req, res) => {
+    res.send("CommitStory API is running");
 })
 
 app.listen(5000, () => {
