@@ -65,7 +65,7 @@ router.post('/fetch-commits', async (req, res) => {
         }
         console.error("--- ERROR END ---");
 
-        \        const status = error.response?.status || 500;
+        const status = error.response?.status || 500;
         const detail = error.response?.data?.message || error.message;
         res.status(status).json({ error: "Failed to fetch commits", detail });
     }
